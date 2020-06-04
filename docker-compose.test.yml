@@ -1,0 +1,45 @@
+version: "2"
+
+networks: 
+  test.net:
+    driver: bridge
+
+services:
+  api:
+    image: node
+    container_name: apiGraphQl2
+    user: "node"
+    working_dir: /app
+    volumes:
+      - ./api:/app
+    command: "npm run test"
+    ports:
+      - "8080:8080"
+    networks: 
+      - 'test.net'
+    links: 
+      - database:mongodb
+      
+  database:
+    image: mongo
+    restart: always
+    container_name: databaseTest2
+    environment:
+        - MONGO_INITDB_DATABASE=databaseTest2
+        - MONGO_INITDB_USERNAME=root
+        - MONGO_INITDB_PASSWORD=example
+    volumes:
+        - ./mongo-volume:/data/db
+    ports:
+        - '27017:27017'
+    networks: 
+        - 'test.net'
+
+  dbmanager:
+    image: mongo-express
+    networks:
+      - test.net
+    ports:
+      - "8081:8081"
+    links:
+      - database:mongo

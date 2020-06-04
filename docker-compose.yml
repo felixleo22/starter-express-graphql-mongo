@@ -1,0 +1,45 @@
+version: "2"
+
+networks: 
+  test.net:
+    driver: bridge
+
+services:
+  api:
+    image: node
+    container_name: example-express-graphql
+    user: "node"
+    working_dir: /app
+    volumes:
+      - ./api:/app
+    command: "npm run dev"
+    ports:
+      - "8080:8080"
+    networks: 
+      - 'test.net'
+    links: 
+      - database:mongodb
+      
+  database:
+    image: mongo
+    restart: always
+    container_name: example-database-for-express-graphql
+    environment:
+        - MONGO_INITDB_DATABASE=example-database-for-express-graphql
+        - MONGO_INITDB_USERNAME=root
+        - MONGO_INITDB_PASSWORD=example
+    volumes:
+        - ./mongo-volume:/data/db
+    ports:
+        - '27017:27017'
+    networks: 
+        - 'test.net'
+
+  dbmanager:
+    image: mongo-express
+    networks:
+      - test.net
+    ports:
+      - "8081:8081"
+    links:
+      - database:mongo
