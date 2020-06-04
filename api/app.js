@@ -2,7 +2,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const mongoose = require('mongoose');
 const graphql = require('./graphql');
-const schema = require('./schema/schema');
+const schema = require('./AFACTORISER/schema');
 
 const app = express();
 
