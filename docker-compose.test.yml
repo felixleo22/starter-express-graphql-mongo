@@ -7,11 +7,11 @@ networks:
 services:
   api:
     image: node
-    container_name: apiGraphQl2
+    container_name: example-express-graphql
     user: "node"
     working_dir: /app
     volumes:
-      - ./api:/app
+      - ./:/app
     command: "npm run test"
     ports:
       - "8080:8080"
@@ -23,9 +23,9 @@ services:
   database:
     image: mongo
     restart: always
-    container_name: databaseTest2
+    container_name: example-database-for-express-graphql
     environment:
-        - MONGO_INITDB_DATABASE=databaseTest2
+        - MONGO_INITDB_DATABASE=example-database-for-express-graphql
         - MONGO_INITDB_USERNAME=root
         - MONGO_INITDB_PASSWORD=example
     volumes:

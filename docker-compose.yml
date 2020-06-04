@@ -11,7 +11,7 @@ services:
     user: "node"
     working_dir: /app
     volumes:
-      - ./api:/app
+      - ./:/app
     command: "npm run dev"
     ports:
       - "8080:8080"
