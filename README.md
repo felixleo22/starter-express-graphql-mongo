@@ -76,10 +76,10 @@ Status : 200
 POST "/graphql"
 ```json
 {
-    "query": "{author{id:"5f86e6c0b8feb6001245ecbd"}}",
+    "query": "{author{id:\"5f86e6c0b8feb6001245ecbd\"}}",
 }
 ```
-Response: 
+Response:
 Status : 200
 ```json
 {
@@ -108,10 +108,10 @@ Status : 200
 POST "/graphql"
 ```json
 {
-    "query": "mutation {addAuthor(name: "Yannick", age: 28){id,name}}",
+    "query": "mutation {addAuthor(name: \"Yannick\", age: 28){id,name}}",
 }
 ```
-Response: 
+Response:
 Status : 200
 ```json
 {
@@ -127,10 +127,10 @@ Status : 200
 POST "/graphql"
 ```json
 {
-     "query": "mutation {updateAuthor(_id: "5f870e61d183a702bbe1063f", name: "Steven", age: 24){id,name}}"
+     "query": "mutation {updateAuthor(_id: \"5f870e61d183a702bbe1063f\", name: \"Steven\", age: 24){id,name}}"
 }
 ```
-Response: 
+Response:
 Status : 200
 ```json
 {
@@ -146,7 +146,7 @@ Status : 200
 POST "/graphql"
 ```json
 {
-     "query": "mutation {deleteAuthor(_id: "5f870e61d183a702bbe1063f"){id,name}}"
+     "query": "mutation {deleteAuthor(_id: \"5f870e61d183a702bbe1063f\"){id,name}}"
 }
 ```
 Response: 
