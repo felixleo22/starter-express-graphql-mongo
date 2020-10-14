@@ -43,17 +43,24 @@ docker-compose ps
   <img src="https://github.com/felixleo22/starter-express-graphql-mongo/blob/master/img/modele.png" />
 </p>
 
-### Examples
+## Examples
+
+### Queries
 
 #### authors
-POST "/graphql"
+
+method: POST,
+url: "/graphql"
+Body:
 ```json
 {
     "query": "{authors{id,name,age}}",
 }
 ```
-Response: 
-Status : 200
+
+Status: 200
+Response:
+
 ```json
 {
   "data": {
@@ -73,15 +80,20 @@ Status : 200
 }
 ```
 #### author
-POST "/graphql"
-Body :
+
+method: POST,
+url: "/graphql"
+Body:
+
 ```json
 {
     "query": "{author{id:\"5f86e6c0b8feb6001245ecbd\"}}",
 }
 ```
+
+Status: 200
 Response:
-Status : 200
+
 ```json
 {
   "data": {
@@ -105,16 +117,23 @@ Status : 200
   }
 }
 ```
-#### add author
-POST "/graphql"
-Body :
+
+### Mutations
+
+#### addAuthor
+
+method: POST,
+url: "/graphql"
+Body:
 ```json
 {
     "query": "mutation {addAuthor(name: \"Yannick\", age: 28){id,name}}",
 }
 ```
+
+Status: 200
 Response:
-Status : 200
+
 ```json
 {
   "data": {
@@ -125,16 +144,21 @@ Status : 200
   }
 }
 ```
-#### update author
-POST "/graphql"
-Body :
+
+#### Update author
+
+method: POST,
+url: "/graphql"
+Body:
 ```json
 {
      "query": "mutation {updateAuthor(_id: \"5f870e61d183a702bbe1063f\", name: \"Steven\", age: 24){id,name}}"
 }
 ```
+
+Status: 200
 Response:
-Status : 200
+
 ```json
 {
   "data": {
@@ -145,16 +169,20 @@ Status : 200
   }
 }
 ```
+
 #### delete author
-POST "/graphql"
-Body :
+method: POST,
+url: "/graphql"
+Body:
 ```json
 {
      "query": "mutation {deleteAuthor(_id: \"5f870e61d183a702bbe1063f\"){id,name}}"
 }
 ```
-Response: 
-Status : 200
+
+Status: 200
+Response:
+
 ```json
 {
   "data": {
@@ -165,3 +193,11 @@ Status : 200
   }
 }
 ```
+
+#### book
+
+It's the same
+
+### Future
+
+I will put complete documentation of API with api-doc on a github.io. If i think about it
