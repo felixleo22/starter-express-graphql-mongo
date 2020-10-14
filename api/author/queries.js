@@ -15,13 +15,6 @@ module.exports = {
     },
     resolve: (parent, args) => AuthorModel.findById(args.id),
   },
-  authorByAge: {
-    type: AuthorType,
-    args: {
-      age: { type: GraphQLInt },
-    },
-    resolve: (parent, args) => AuthorModel.findById({ age: { $gte: args.age } }),
-  },
   authors: {
     type: new GraphQLList(AuthorType),
     resolve: () => AuthorModel.find({}),

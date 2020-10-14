@@ -6,12 +6,13 @@ const schema = require('./api/graphql');
 const app = express();
 
 const startServer = async () => {
-  await mongoose.connect('mongodb://mongodb/databaseTest2', {
-    useNewUrlParser: true,
-  });
-  mongoose.connection.once('open', () => {
-    console.log('connected to database');
-  });
+  try {
+    const mongoDB = 'mongodb://database/commu-list';
+    await mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
+    console.log('database connected');
+  } catch (err) {
+    console.log(err);
+  }
 
   app.get('/', (req, res) => {
     res.json({ name: 'http://localhost:8080/graphql' });

@@ -67,15 +67,13 @@ describe('Tasks API', () => {
       chai.request(server)
         .get(`/graphql?query={author(id:"${falseid}"){id,name}}`)
         .end((err, response) => {
-          // TODO fix code status
-          // response.should.have.status(404);
           response.body.should.be.a('object');
           response.body.should.have.property('errors');
           done();
         });
     });
   });
-  /**
+    /**
      * Update
      */
   describe('Update /graphql?query=mutation{updateAuthor(_id:"id",name: "updateAuthor"){name,id,age}}', () => {
@@ -99,8 +97,6 @@ describe('Tasks API', () => {
         .set('content-type', 'application/json')
         .send({ query: `mutation author{updateAuthor(_id:"${falseid}", name: "updateAuthor"){id,name,age}}` })
         .end((err, response) => {
-          // TODO fix code status
-          // response.should.have.status(404);
           response.should.have.status(200);
           done();
         });

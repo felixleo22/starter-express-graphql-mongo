@@ -1,12 +1,44 @@
+# starter-express-graphql-mongo
+
+project that allows you to understand the basics of graphql
+
+## Prerequisites
+
+The tools you need to let this project run are :
+* docker
+* docker-compose
+* npm
+
+## Installation
+
+``` git clone https://github.com/felixleo22/starter-express-graphql-mongo ```
+
 ### Start
 
-npm i on ./api
 
-docker-compose up on ./
+Before you start the starter, make sure have download all dependencies with npm.
 
-docker ports :
+```bash
+# Start ez-unpaywall as daemon
+docker-compose up -d
+
+# Stop ez-unpaywall
+docker-compose stop
+
+# Get the status of ez-unpaywall services
+docker-compose ps
+```
+
+### défault ports
+
 - 8080 : graphql 
 - 8081 : mongo-express
-- 27017 : Mongo
+- 27017 : mongoDB
 
-### /!\ doesn't work now /!\
+## API
+
+### Object structure
+
+<p align="center">
+  <img src="../img/modele.png" />
+</p>
