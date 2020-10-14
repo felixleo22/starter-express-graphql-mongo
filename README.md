@@ -40,5 +40,5 @@ docker-compose ps
 ### Object structure
 
 <p align="center">
-  <img src="../img/modele.png" />
+  <img src="https://github.com/felixleo22/starter-express-graphql-mongo/blob/master/img/modele.png" />
 </p>
