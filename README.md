@@ -74,6 +74,7 @@ Status : 200
 ```
 #### author
 POST "/graphql"
+Body :
 ```json
 {
     "query": "{author{id:\"5f86e6c0b8feb6001245ecbd\"}}",
@@ -106,6 +107,7 @@ Status : 200
 ```
 #### add author
 POST "/graphql"
+Body :
 ```json
 {
     "query": "mutation {addAuthor(name: \"Yannick\", age: 28){id,name}}",
@@ -125,6 +127,7 @@ Status : 200
 ```
 #### update author
 POST "/graphql"
+Body :
 ```json
 {
      "query": "mutation {updateAuthor(_id: \"5f870e61d183a702bbe1063f\", name: \"Steven\", age: 24){id,name}}"
@@ -144,6 +147,7 @@ Status : 200
 ```
 #### delete author
 POST "/graphql"
+Body :
 ```json
 {
      "query": "mutation {deleteAuthor(_id: \"5f870e61d183a702bbe1063f\"){id,name}}"
